@@ -5,11 +5,11 @@
 # Site
 title: CryStaR的ICU
 subtitle: '有大病的Blog'
-description: ''
+description: '我说我有大病是真有大病（'
 keywords:
 author: CryStaR
 language: zh-CN
-timezone: 'utc+8'
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
