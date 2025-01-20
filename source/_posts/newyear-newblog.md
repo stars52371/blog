@@ -2,7 +2,8 @@
 title: 新博客，新年，新气象
 date: 2025-01-20 16:37:45
 tags: 新开始
-excerpt:
+excerpt:，嘛，写写东西
+published: true
 ---
 
 > 兜兜转转，最后还是回到了静态博客
