@@ -8,7 +8,7 @@ published: true
 cover: https://s21.ax1x.com/2025/01/21/pEA9xun.png
 banner: https://s21.ax1x.com/2025/01/21/pEA9xun.png
 poster: # 海报（可选，全图封面卡片）
-  topic: #标题上方的小字 可选
+  topic: 短说 #标题上方的小字 可选
   headline: 大早上的，What Can I Say? # 必选
   caption: 很闲，不知道在闲什么 # 可选
   color: #标题颜色 可选
