@@ -1,5 +1,6 @@
 ---
 title: friends
+menu_id: social
 date: 2025-01-21 08:34:51
 ---
 # 这里是友情链接
