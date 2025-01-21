@@ -63,7 +63,7 @@ site_tree:
   # 主页配置
   home:
     leftbar: welcome, recent
-    rightbar: wel
+    rightbar: 
   # 博客列表页配置
   index_blog:
     base_dir: blog # 只影响自动生成的页面路径
@@ -89,7 +89,7 @@ site_tree:
   post:
     menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 post 的页面默认使用这里配置的 menu_id
     leftbar: related, recent # for pages using 'layout:post'
-    rightbar: ghrepo, toc, wel
+    rightbar: ghrepo, toc
   # 博客专栏文章内页配置
   topic:
     menu_id: post
