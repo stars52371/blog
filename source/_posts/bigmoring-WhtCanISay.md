@@ -6,7 +6,7 @@ categories:
   - 短说
 published: true
 cover: https://s21.ax1x.com/2025/01/21/pEA9xun.png
-banner: 
+banner: https://s21.ax1x.com/2025/01/21/pEA9xun.png
 poster: # 海报（可选，全图封面卡片）
   topic: #标题上方的小字 可选
   headline: 大早上的，What Can I Say? # 必选
