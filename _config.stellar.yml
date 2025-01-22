@@ -253,7 +253,7 @@ comments:
   # https://twikoo.js.org/
   twikoo:
     js: https://gcore.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js # 建议锁定版本
-    envId: https://blog-kappa-navy-37.vercel.app/ # vercel函数
+    envId: https://twikooback.vercel.app/ # vercel函数
 
   # Waline
   # https://waline.js.org/
