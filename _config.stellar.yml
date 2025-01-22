@@ -207,13 +207,13 @@ search:
 
 ######## Comments ########
 comments:
-  service: # beaudar, utterances, giscus, twikoo, waline, artalk
+  service: beaudar  # beaudar, utterances, giscus, twikoo, waline, artalk
   comment_title: 快来参与讨论吧~
   lazyload: false # true / false
   # beaudar
   # https://beaudar.lipk.org/
   beaudar:
-    repo: xxx/xxx
+    repo: stars52371/blog-comments
     issue-term: pathname
     issue-number:
     theme: preferred-color-scheme
