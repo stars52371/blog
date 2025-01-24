@@ -3,6 +3,7 @@ title: 尝试找回用过PS的记忆
 excerpt: 混账，你学了甚麽
 categories:
   - 闲谈
+  - 折腾
 published: true
 poster:
   topic: 
@@ -12,6 +13,9 @@ poster:
 date: 2025-01-24 17:17:44
 tags:
   - 闲谈
+  - 折腾
+  - PS
+  - PhotoShop
 cover: https://pic1.imgdb.cn/item/679388a8d0e0a243d4f7a18d.jpg
 banner: https://pic1.imgdb.cn/item/679388a8d0e0a243d4f7a18d.jpg
 comments:
@@ -21,7 +25,7 @@ breadcrumb:
 >混账，你这在学校学了甚麽！？
 ## 重拾 PhotoShop 的原因
 很简单，因为开始重新写起了博客，想着直接做一套封面模板来应对以后的 banner 图制作，于是乎，打开PS开始重拾。
-## 霍，这是啥？
+## 霍，这啥来着？
 打开 PhotoShop ，通过尺寸创建，建好后自动打开工程项目一气呵成
 然后就是对着工作区发呆
 
