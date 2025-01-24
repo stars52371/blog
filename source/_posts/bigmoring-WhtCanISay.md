@@ -5,8 +5,8 @@ categories:
   - 闲谈
   - 短说
 published: true
-cover: https://s21.ax1x.com/2025/01/21/pEA9xun.png
-banner: https://s21.ax1x.com/2025/01/21/pEA9xun.png
+cover: https://pic1.imgdb.cn/item/6793891ed0e0a243d4f7a1a2.png
+banner: https://pic1.imgdb.cn/item/6793891ed0e0a243d4f7a1a2.png
 poster: # 海报（可选，全图封面卡片）
   topic: 短说 <br> 2025-01-21 #标题上方的小字 可选
   headline: 大早上的，What Can I Say? # 必选
