@@ -5,7 +5,7 @@ tags: 闲谈
 excerpt: 嘛,写写东西
 categories: [闲谈]
 published: true
-cover: https://s11.ax1x.com/2022/11/15/zEkeeO.md.jpg
+cover: https://pic1.imgdb.cn/item/67938ac4d0e0a243d4f7a1e4.jpg
 ---
 
 # 总而言之
