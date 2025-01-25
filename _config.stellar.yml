@@ -27,7 +27,7 @@ logo:
 
 # 侧边栏主功能导航菜单
 menubar: 
-  columns: 3 # 一行多少个
+  columns: 1 # 一行多少个
   items: 
      - id: post
        theme: '#1BCDFC'
