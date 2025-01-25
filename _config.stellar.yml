@@ -38,6 +38,7 @@ menubar:
        theme: '#1BCDFC'
        icon: solar:documents-bold-duotone
        title: 博客
+       text: 文章
        url: /
     #  - id: wiki
     #    theme: '#3DC550'
@@ -48,11 +49,13 @@ menubar:
        theme: '#FA6400'
        icon: solar:notebook-bookmark-bold-duotone
        title: 探索
+       text: 专栏
        url: /explore/
      - id: social
        theme: '#F44336'
        icon: solar:chat-square-like-bold-duotone
        title: 社交
+       text: 友链
        url: /friends/
 
 
