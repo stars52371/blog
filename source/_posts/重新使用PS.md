@@ -7,7 +7,6 @@ categories:
   - 折腾
 published: true
 poster:
-  topic: 
   headline: 尝试找回<br>用过PS的记忆
   caption:  2025.01.24 <br> 混账，你学了甚麽！？
   color: 
