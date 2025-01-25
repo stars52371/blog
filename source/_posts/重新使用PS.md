@@ -1,5 +1,5 @@
 ---
-title: 尝试找回用过PS的记忆
+title: 尝试找回<br>用过PS的记忆
 excerpt: 混账，你学了甚麽
 categories:
   - 闲谈
@@ -16,8 +16,8 @@ tags:
   - 折腾
   - PS
   - PhotoShop
-cover: https://pic1.imgdb.cn/item/679388a8d0e0a243d4f7a18d.jpg
-banner: https://pic1.imgdb.cn/item/679388a8d0e0a243d4f7a18d.jpg
+cover: https://pic1.imgdb.cn/item/67948540d0e0a243d4f7bfad.jpg
+banner: https://pic1.imgdb.cn/item/67948540d0e0a243d4f7bfad.jpg
 comments:
 indexing:
 breadcrumb:
