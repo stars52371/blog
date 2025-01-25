@@ -36,7 +36,7 @@ menubar:
     # url: 点击跳转到哪，支持相对路径和绝对路径
      - id: post
        theme: '#1BCDFC'
-       icon: solar:documents-bold-duotone
+       icon: solar:documents-bold-duotone 
        title: 博客
        text: 文章
        url: /
@@ -47,13 +47,13 @@ menubar:
     #    url: /wiki/
      - id: explore
        theme: '#FA6400'
-       icon: solar:notebook-bookmark-bold-duotone
+       icon: solar:notebook-bookmark-bold-duotone 
        title: 探索
        text: 专栏
        url: /explore/
      - id: social
        theme: '#F44336'
-       icon: solar:chat-square-like-bold-duotone
+       icon: solar:chat-square-like-bold-duotone 
        title: 社交
        text: 友链
        url: /friends/
@@ -313,9 +313,9 @@ comments:
 ######## Footer ########
 footer:
   social:
-    # github:
-    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
-    #   url: /
+     github:
+       icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
+       url: https://github.com/stars52371
     # music:
     #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3845874.svg"/>'
     #   url: /
@@ -325,9 +325,9 @@ footer:
     # comments:
     #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
     #   url: /about/#comments
-    # theme:
-    #   icon: default:theme
-    #   onclick: 'switchTheme()'
+     theme:
+       icon: default:theme
+       onclick: 'switchTheme()'
   sitemap:
     # '博客':
     #   - '[近期](/)'
