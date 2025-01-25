@@ -1,6 +1,7 @@
 ---
-title: 尝试找回<br>用过PS的记忆
+title: 尝试找回 <br> 用过PS的记忆
 excerpt: 混账，你学了甚麽
+date: 2025-01-24 17:17:44
 categories:
   - 闲谈
   - 折腾
@@ -10,7 +11,6 @@ poster:
   headline: 尝试找回<br>用过PS的记忆
   caption:  2025.01.24 <br> 混账，你学了甚麽！？
   color: 
-date: 2025-01-24 17:17:44
 tags:
   - 闲谈
   - 折腾

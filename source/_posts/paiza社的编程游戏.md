@@ -1,6 +1,7 @@
 ---
 title: 群聊提到的 <br> 编程游戏
 excerpt: 好像曾经见到过这种游戏
+date: 2025-01-25 13:37:28
 categories:
   - 闲谈
   - 短说
@@ -10,7 +11,6 @@ poster:
   headline: 群聊提到的 <br> 编程游戏
   caption: 有点既视感 <br> 好像曾经见到过这种游戏
   color: 
-date: 2025-01-25 13:37:28
 tags:
   - 闲谈
   - 短说
