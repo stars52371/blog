@@ -9,7 +9,7 @@ categories:
 published: true
 poster:
   headline: 尝试找回<br>用过PS的记忆
-  caption:  2025.01.24 <br> 混账，你学了甚麽！？
+  caption: 2025.01.24 <br> 混账，你学了甚麽！？
   color: 
 tags:
   - 闲谈
@@ -18,8 +18,8 @@ tags:
   - PhotoShop
 cover: https://pic1.imgdb.cn/item/67948540d0e0a243d4f7bfad.jpg
 banner: https://pic1.imgdb.cn/item/67948540d0e0a243d4f7bfad.jpg
-comments:
-indexing:
+comments: 
+indexing: 
 breadcrumb:
 ---
 >混账，你这在学校学了甚麽！？
