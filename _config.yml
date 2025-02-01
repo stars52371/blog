@@ -103,3 +103,12 @@ theme: stellar
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+sitemap:
+  path: sitemap.xml
+  rel: false                        # 可选，是否生成 rel-sitemap（多语言用）
+  tags: true                        # 可选，是否包含标签页
+  categories: true                  # 可选，是否包含分类页
+  exclude:                          # 可选，排除某些页面
+    - /404.html
+    - /private-page/
