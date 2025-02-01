@@ -112,3 +112,13 @@ sitemap:
   exclude:                          # 可选，排除某些页面
     - /404.html
     - /private-page/
+
+# hexo-generator-robotstxt 配置
+robotstxt:
+  useragent: "*"
+  allow:
+    - /
+  disallow:
+    - /admin/      # 禁止抓取的路径
+    - /private/
+  sitemap: https://blog.crystar.icu/sitemap.xml  # 替换为你的域名
