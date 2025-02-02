@@ -9,3 +9,5 @@ public/
 .env.build
 .vercel
 /source/_posts/.obsidian
+source/_posts/.obsidian/app.json
+source/_posts/.obsidian/workspace.json
