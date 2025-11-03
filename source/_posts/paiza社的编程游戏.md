@@ -24,7 +24,6 @@ breadcrumb:
 ---
 >打开群聊，望眼看见群聊记录
 
-{% grid %}
 <!-- cell -->
 ![群聊记录](https://pic1.imgdb.cn/item/679487ffd0e0a243d4f7c09f.png)
 <!-- cell -->
