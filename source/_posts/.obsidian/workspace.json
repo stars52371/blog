@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "重新使用PS.md",
+                "file": "改前端他妈一天还没还完.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "重新使用PS"
+              "title": "改前端他妈一天还没还完"
             }
           }
         ]
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "重新使用PS.md",
+                "file": "改前端他妈一天还没还完.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "重新使用PS 的反向链接列表"
+              "title": "改前端他妈一天还没还完 的反向链接列表"
             }
           },
           {
@@ -164,7 +164,11 @@
   },
   "active": "0deb5b893ac111cb",
   "lastOpenFiles": [
+    "新博客.md",
+    "改前端他妈一天还没还完.md",
+    "大早上的WhtCanISay.md",
     "吃海带.md",
+    "重新使用PS.md",
     "paiza社的编程游戏.md"
   ]
 }
