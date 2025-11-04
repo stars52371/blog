@@ -27,7 +27,7 @@ logo:
 
 # 侧边栏主功能导航菜单
 menubar: 
-  columns: 1 # 一行多少个
+  columns: 4 # 一行多少个
   items: 
      - id: post
        theme: '#1BCDFC'
@@ -308,6 +308,10 @@ footer:
      github:
        icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
        url: https://github.com/stars52371
+
+     theme:
+       icon: default:theme
+       onclick: 'switchTheme()'
     # music:
     #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3845874.svg"/>'
     #   url: /
@@ -317,9 +321,6 @@ footer:
     # comments:
     #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
     #   url: /about/#comments
-     theme:
-       icon: default:theme
-       onclick: 'switchTheme()'
   sitemap:
     # '博客':
     #   - '[近期](/)'
