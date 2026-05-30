@@ -37,7 +37,7 @@ logo:
 
 # 侧边栏主功能导航菜单
 menubar:
-  columns: 4 # 一行多少个
+  columns: 3 # 一行多少个
   items: # 可按照自己需求增加，符合以下格式即可
     # id: 页面中高亮的 menu_id 
     # theme: 高亮时的颜色，仅 svg 中 fill="currentColor" 时有效
@@ -331,7 +331,7 @@ footer:
   social:
       github:
        icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
-       url: https://github.com/stars52371、
+       url: https://github.com/stars52371
       theme:
         icon: default:theme
         onclick: 'switchTheme()'
