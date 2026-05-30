@@ -1,20 +1,19 @@
-# Hexo Example
+# 雨晨的个人博客
 
-This directory is a brief example of a [Hexo](https://hexo.io/) site that can be deployed to Vercel with zero configuration. 
+本博客使用hexo进行构建，并使用vercal进行serverless部署。
+文章更新频率低且完全随缘
 
-This version is created by [EvanNotFound](https://github.com/EvanNotFound/vercel-hexo-template), which uses the latest hexo version v6.3.0 and fixed some bugs compared to the official template.
+## 想用同样的方式搭建博客？
 
-## Deploy Your Own
-
-Deploy your own Hexo project with Vercel.
+使用 Vercel 部署你自己的 Hexo 项目
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/EvanNotFound/vercel-hexo-template/tree/main&template=hexo)
 
-_Live Example: https://hexo-template.ohevan.com_
+在线样例: https://hexo-template.ohevan.com_
 
-### How We Created This Example
+### 如何创建此示例
 
-To get started with Hexo for deployment with Vercel, you can use the [Hexo CLI](https://hexo.io/docs/index.html#Installation) to initialize the project:
+要开始使用 Hexo 并部署到 Vercel，你可以使用 [Hexo CLI](https://hexo.io/docs/index.html#Installation) 来初始化项目：
 
 ```shell
 $ hexo init project-name
