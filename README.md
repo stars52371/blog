@@ -1,7 +1,8 @@
-# 雨晨的个人博客
+# CryStaR571（雨晨）的个人博客
 
-本博客使用hexo进行构建，并使用vercal进行serverless部署。
-文章更新频率低且完全随缘
+本博客使用 [Hexo](https://hexo.io/) 构建，通过 [Vercel](https://vercel.com/) 进行 Serverless 部署。
+主题为 [Stellar](https://github.com/xaoxuu/hexo-theme-stellar)
+文章更新频率低且完全随缘。
 
 ## 想用同样的方式搭建博客？
 
