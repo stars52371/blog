@@ -8,4 +8,6 @@ public/
 .env
 .env.build
 .vercel
+.vscode
 /source/_posts/.obsidian
+.github
