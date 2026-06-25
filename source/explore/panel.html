@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Explore Panel</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --pri:#6b7dff;--pri2:#a78bfa;--accent:#f0a6d8;
+  --bg:#f0f2f5;--card:#fff;--text:#1f2328;--sub:#656d76;--faint:#8c959f;
+  --line:#d0d7de;--line-soft:rgba(0,0,0,.06);
+  --sh:0 1px 3px rgba(0,0,0,.06);--sh2:0 6px 20px rgba(0,0,0,.1);
+  --radius:12px;--radius-lg:16px;
+  --gh-blue:#0969da;--gh-green:#2da44e
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#0d1117;--card:#161b22;--text:#e6edf3;--sub:#8b949e;--faint:#6e7681;
+    --line:#30363d;--line-soft:rgba(255,255,255,.08);
+    --sh:0 1px 3px rgba(0,0,0,.3);--sh2:0 6px 20px rgba(0,0,0,.4);
+    --gh-blue:#58a6ff
+  }
+}
+html[data-theme="dark"]{
+  --bg:#0d1117;--card:#161b22;--text:#e6edf3;--sub:#8b949e;--faint:#6e7681;
+  --line:#30363d;--line-soft:rgba(255,255,255,.08);
+  --sh:0 1px 3px rgba(0,0,0,.3);--sh2:0 6px 20px rgba(0,0,0,.4);
+  --gh-blue:#58a6ff
+}
+html{height:100%;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+body{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;min-height:100%}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--faint)}
+
+.wrap{padding:24px;max-width:920px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+
+/* ===== Section card (shared) ===== */
+.box{background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius-lg);box-shadow:var(--sh);overflow:hidden}
+.box-hd{padding:14px 18px;font-size:.82em;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--sub);display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line-soft)}
+.box-hd .ico{font-size:1.1em}
+.box-bd{padding:18px}
+
+/* ===== Profile Card ===== */
+.hero{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--sh)}
+.hero-inner{padding:24px;display:flex;flex-direction:column;gap:18px}
+.hero-top{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+.av{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--pri),var(--pri2));display:flex;align-items:center;justify-content:center;font-size:34px;flex-shrink:0;position:relative}
+.av::after{content:"";position:absolute;inset:-6px;border-radius:24px;border:2px solid color-mix(in srgb,var(--pri) 25%,transparent);pointer-events:none}
+.hero-info{min-width:0}
+.pn{font-size:1.3em;font-weight:800;letter-spacing:.01em}
+.pn .sub{font-size:.65em;font-weight:500;color:var(--faint);margin-left:8px}
+.pb{font-size:.82em;color:var(--sub);margin-top:4px;line-height:1.5}
+.pl{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+.pl a{font-size:.72em;font-weight:600;padding:5px 14px;border-radius:8px;text-decoration:none;color:var(--text);background:var(--bg);border:1px solid var(--line);transition:all .15s;display:flex;align-items:center;gap:5px}
+.pl a:hover{border-color:var(--pri);color:var(--pri);box-shadow:0 0 0 3px color-mix(in srgb,var(--pri) 12%,transparent)}
+.hero-divider{height:1px;background:var(--line-soft)}
+.hero-bottom{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:var(--bg);border:1px solid var(--line-soft);border-radius:var(--radius);padding:10px 12px;text-align:center}
+.stat-val{font-size:1.15em;font-weight:800;color:var(--pri)}
+.stat-label{font-size:.62em;font-weight:600;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.gh-chart{width:100%;height:80px;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line-soft);position:relative}
+.gh-chart img{height:80px;display:block;position:absolute;right:0;top:0;opacity:.85;image-rendering:crisp-edges}
+.gh-chart-label{font-size:.65em;font-weight:700;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.gh-chart-label .dot{width:6px;height:6px;border-radius:50%;background:var(--gh-green)}
+@media(max-width:680px){.hero-top{grid-template-columns:1fr;text-align:center}.av{margin:0 auto}.pl{justify-content:center}.hero-bottom{grid-template-columns:1fr}}
+
+/* ===== Dashboard Grid ===== */
+.dash{display:grid;grid-template-columns:1fr 1.4fr;gap:20px}
+@media(max-width:760px){.dash{grid-template-columns:1fr}}
+
+/* ===== Timeline ===== */
+.tl{position:relative;padding-left:24px}
+.tl::before{content:"";position:absolute;left:6px;top:4px;bottom:4px;width:2px;border-radius:1px;background:linear-gradient(180deg,var(--pri),color-mix(in srgb,var(--pri2) 10%,transparent))}
+.tli{position:relative;margin-bottom:14px}
+.tli:last-child{margin-bottom:0}
+.tli::before{content:"";position:absolute;left:-22px;top:10px;width:8px;height:8px;border-radius:50%;background:var(--card);border:2px solid var(--pri)}
+.tld{font-size:.65em;font-weight:700;color:var(--faint);letter-spacing:.06em;margin-bottom:4px}
+/* Bubble style — blog post entries */
+.tli-bubble .tlb{position:relative;background:var(--bg);border:1px solid var(--line-soft);border-radius:var(--radius);padding:10px 14px;font-size:.84em;line-height:1.45;color:var(--text)}
+.tli-bubble .tlb::before{content:"";position:absolute;left:-6px;top:10px;width:10px;height:10px;border:1px solid var(--line-soft);border-right:0;border-bottom:0;background:var(--bg);transform:rotate(-45deg)}
+/* Event style — life activity entries */
+.tli-event{padding-left:2px}
+.tli-event .tlb{font-size:.82em;color:var(--sub);line-height:1.45}
+.tli-event .tlb em{font-style:normal;color:var(--text);font-weight:600}
+.tli-event::before{border-color:var(--faint);background:var(--bg)}
+/* Timeline box: fixed height, scroll if overflow */
+.tl-box .box-bd{max-height:390px;overflow-y:auto;padding-right:10px}
+
+/* ===== GitHub Repo Cards ===== */
+.gh-list{display:flex;flex-direction:column;gap:10px}
+.gh-card{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;transition:all .2s}
+.gh-card:hover{border-color:var(--pri);box-shadow:0 0 0 3px color-mix(in srgb,var(--pri) 10%,transparent)}
+.gh-top{display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.gh-ico{color:var(--faint);flex-shrink:0}
+.gh-name{font-size:.9em;font-weight:700;color:var(--gh-blue)}
+.gh-card:hover .gh-name{text-decoration:underline}
+.gh-name .owner{color:var(--faint);font-weight:500}
+.gh-desc{font-size:.78em;color:var(--sub);line-height:1.45;margin-bottom:10px}
+.gh-meta{display:flex;align-items:center;gap:16px;font-size:.74em;color:var(--sub);flex-wrap:wrap}
+.gh-meta .m{display:flex;align-items:center;gap:4px}
+.gh-lang{display:flex;align-items:center;gap:6px}
+.gh-lang .dot{width:10px;height:10px;border-radius:50%;background:#ccc}
+.gh-stars{font-weight:600}
+.gh-loading{font-size:.78em;color:var(--faint);padding:8px 0}
+
+/* ===== Game Showcase (vertical list) ===== */
+.games{display:flex;flex-direction:column;gap:10px}
+.game{position:relative;border-radius:var(--radius);overflow:hidden;display:flex;align-items:center;text-decoration:none;color:#fff;border:1px solid var(--line-soft);box-shadow:var(--sh);transition:all .25s;height:72px}
+.game:hover{transform:translateX(4px);box-shadow:var(--sh2)}
+.game-ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.4) 50%,transparent 100%)}
+.game-info{position:relative;padding:14px 20px;z-index:1}
+.game-name{font-size:.92em;font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.game .play{position:absolute;top:50%;right:16px;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;font-size:.8em;opacity:0;transition:opacity .25s;z-index:2}
+.game:hover .play{opacity:1}
+
+/* ===== Music ===== */
+.music-box{display:flex;gap:16px;align-items:stretch}
+.music-embed{flex:1;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line-soft);min-height:340px}
+.music-embed iframe{display:block;width:100%;height:340px;border:none}
+
+/* ===== Games + Music side by side ===== */
+.dash2{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:start}
+@media(max-width:760px){.dash2{grid-template-columns:1fr}.dash2 .music-embed iframe{height:350px}}
+
+.spacer{height:20px}
+@media(max-width:600px){.wrap{padding:16px 12px}}
+</style>
+</head>
+<body>
+<script>
+(function(){
+  function apply(theme) {
+    if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    else document.documentElement.removeAttribute('data-theme');
+  }
+  function sync() {
+    try {
+      if (window.parent && window.parent !== window) {
+        var p = window.parent.document.documentElement;
+        apply(p.getAttribute('data-theme'));
+        // watch for theme changes on parent
+        var ob = new MutationObserver(function(){apply(p.getAttribute('data-theme'))});
+        ob.observe(p, {attributes:true, attributeFilter:['data-theme']});
+      }
+    } catch(e) {
+      // cross-origin fallback: use system preference
+      apply(window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : '');
+      window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change', function(e){
+        apply(e.matches ? 'dark' : '');
+      });
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', sync);
+  else sync();
+})();
+</script>
+<div class="wrap">
+
+<!-- ===== Dashboard: Timeline + GitHub Projects ===== -->
+<div class="dash">
+  <!-- Recent Activity -->
+  <div class="box tl-box">
+    <div class="box-hd"><span class="ico">📍</span> 最近动态</div>
+    <div class="box-bd">
+      <div class="tl">
+        <div class="tli tli-event">
+          <div class="tld">2026 / 06 / 18</div>
+          <div class="tlb"><em>探索页面</em> 折腾出来了，个人名片和音乐模块都整上了</div>
+        </div>
+        <div class="tli tli-event">
+          <div class="tld">2026 / 06 / 02</div>
+          <div class="tlb">工作流搬到笔记本，<em>EndeavourOS + Hyprland</em> 跑起来了</div>
+        </div>
+        <div class="tli tli-bubble">
+          <div class="tld">2026 / 05 / 29 · 博客</div>
+          <div class="tlb">回来了。没想到吧。</div>
+        </div>
+        <div class="tli tli-bubble">
+          <div class="tld">2025 / 01 / 26 · 博客</div>
+          <div class="tlb">改前端他妈一天还没还完。</div>
+        </div>
+        <div class="tli tli-event">
+          <div class="tld">2025 / 01 / 20</div>
+          <div class="tlb"><em>新博客</em> 开站了，兜兜转转又回到静态博客</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GitHub Projects -->
+  <div class="box">
+    <div class="box-hd"><span class="ico">⭐</span> 关注的项目</div>
+    <div class="box-bd">
+      <div class="gh-list" id="gh-list">
+        <div class="gh-loading">Loading repo data...</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Games + Music (side by side) ===== -->
+<div class="dash2">
+  <!-- Game Showcase -->
+  <div class="box">
+    <div class="box-hd"><span class="ico">🎮</span> 游戏展柜</div>
+  <div class="box-bd">
+    <div class="games">
+      <a class="game" href="https://store.steampowered.com/app/3932890/" target="_blank" style="background-image:url(https://cdn.akamai.steamstatic.com/steam/apps/3932890/header.jpg);background-size:cover;background-position:center">
+        <div class="game-ov"></div>
+        <div class="play">▶</div>
+        <div class="game-info">
+          <div class="game-name">Escape from Tarkov</div>
+        </div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/1237970/" target="_blank" style="background-image:url(https://cdn.akamai.steamstatic.com/steam/apps/1237970/header.jpg);background-size:cover;background-position:center">
+        <div class="game-ov"></div>
+        <div class="play">▶</div>
+        <div class="game-info">
+          <div class="game-name">Titanfall® 2</div>
+        </div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/553850/" target="_blank" style="background-image:url(https://cdn.akamai.steamstatic.com/steam/apps/553850/header.jpg);background-size:cover;background-position:center">
+        <div class="game-ov"></div>
+        <div class="play">▶</div>
+        <div class="game-info">
+          <div class="game-name">HELLDIVERS™ 2</div>
+        </div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/2246340/" target="_blank" style="background-image:url(https://cdn.akamai.steamstatic.com/steam/apps/2246340/header.jpg);background-size:cover;background-position:center">
+        <div class="game-ov"></div>
+        <div class="play">▶</div>
+        <div class="game-info">
+          <div class="game-name">Monster Hunter Wilds</div>
+        </div>
+      </a>
+      <a class="game" href="https://store.steampowered.com/app/438100/" target="_blank" style="background-image:url(https://cdn.akamai.steamstatic.com/steam/apps/438100/header.jpg);background-size:cover;background-position:center">
+        <div class="game-ov"></div>
+        <div class="play">▶</div>
+        <div class="game-info">
+          <div class="game-name">VRChat</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  </div>
+
+  <!-- Music -->
+  <div class="box">
+    <div class="box-hd"><span class="ico">🎵</span> 正在听</div>
+    <div class="box-bd">
+      <div class="music-box">
+        <div class="music-embed">
+          <iframe src="https://embed.music.apple.com/cn/album/howls/1538107260" allow="autoplay *; encrypted-media *; clipboard-write" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="spacer"></div>
+</div>
+
+<script>
+const repos = [
+  {owner:'end-4',repo:'dots-hyprland'},
+  {owner:'xaoxuu',repo:'hexo-theme-stellar'},
+  {owner:'stars52371',repo:'blog'}
+];
+
+const langColors = {
+  'CSS':'#563d7c','JavaScript':'#f1e05a','TypeScript':'#3178c6',
+  'HTML':'#e34c26','Shell':'#89e051','Lua':'#000080','Python':'#3572A5',
+  'SCSS':'#c6538c','Stylus':'#ff6347','CoffeeScript':'#244776','Vue':'#41b883'
+};
+
+function starIcon(){return '<svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>'}
+function forkIcon(){return '<svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"/></svg>'}
+function repoIcon(){return '<svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>'}
+
+async function fetchRepo(owner, repo) {
+  try {
+    const res = await fetch('https://api.github.com/repos/' + owner + '/' + repo);
+    if (!res.ok) return null;
+    return await res.json();
+  } catch(e) { return null; }
+}
+
+function fmtNum(n) {
+  if (n >= 1000) return (n/1000).toFixed(1).replace('.0','') + 'k';
+  return String(n);
+}
+
+async function renderRepos() {
+  const container = document.getElementById('gh-list');
+  const data = await Promise.all(repos.map(function(r){return fetchRepo(r.owner, r.repo)}));
+  container.innerHTML = '';
+  data.forEach(function(d, i){
+    if (!d) {
+      const r = repos[i];
+      container.innerHTML += '<a class="gh-card" href="https://github.com/' + r.owner + '/' + r.repo + '" target="_blank">' +
+        '<div class="gh-top">' + repoIcon() + '<span class="gh-name">' + r.owner + '/<span style="font-weight:800">' + r.repo + '</span></span></div>' +
+        '<div class="gh-desc">Failed to load repo data</div></a>';
+      return;
+    }
+    const lang = d.language ? '<span class="gh-lang"><span class="dot" style="background:' + (langColors[d.language]||'#ccc') + '"></span>' + d.language + '</span>' : '';
+    const stars = fmtNum(d.stargazers_count);
+    const forks = fmtNum(d.forks_count);
+    const updated = new Date(d.pushed_at).toLocaleDateString('en',{month:'short',day:'numeric'});
+    container.innerHTML += '<a class="gh-card" href="' + d.html_url + '" target="_blank">' +
+      '<div class="gh-top">' + repoIcon() + '<span class="gh-name"><span class="owner">' + d.owner.login + '/</span><span style="font-weight:800">' + d.name + '</span></span></div>' +
+      '<div class="gh-desc">' + (d.description || '') + '</div>' +
+      '<div class="gh-meta">' + lang +
+      '<span class="m gh-stars">' + starIcon() + ' ' + stars + '</span>' +
+      '<span class="m">' + forkIcon() + ' ' + forks + '</span>' +
+      '<span class="m" style="margin-left:auto;color:var(--faint)">更新 ' + updated + '</span>' +
+      '</div></a>';
+  });
+}
+
+renderRepos();
+</script>
+</body>
+</html>

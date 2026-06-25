@@ -11,3 +11,5 @@ public/
 .vscode
 /source/_posts/.obsidian
 .github
+source/explore/.steam_config
+source/explore/_gen_panel.py

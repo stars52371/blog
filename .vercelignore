@@ -1,13 +1,1 @@
 README.md
-LICENSE
-.gitignore
-.vercelignore
-.eslintrc*
-.prettier*
-.editorconfig
-.github/
-.vscode/
-.obsidian
-db.json
-*.log
-
